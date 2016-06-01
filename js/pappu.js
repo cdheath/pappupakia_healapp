@@ -24,6 +24,7 @@
 
     fly_frame_count: 0,
     max_fly_frame_count: 10,
+    cloneFireAllowed : 3,
 
     init: function() {
       this.sound = document.getElementById("flap");
@@ -60,7 +61,7 @@
 
     draw: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
-      
+
       if (utils.isInt(cur_sprite_frame)) {
         var source_y = cur_sprite_frame * 60;
       }
@@ -72,7 +73,7 @@
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
         var source_y = old_sprite_frame * 60;
       }
-      
+
       // console.log(cur_sprite_frame, source_x);
 
       // Rotation on Flying
@@ -136,7 +137,7 @@
 
     drawStatic: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
-      
+
       if (utils.isInt(cur_sprite_frame)) {
         var source_y = cur_sprite_frame * 60;
       }
@@ -163,7 +164,7 @@
         this.w,
         60
       );*/
-      
+
       ctx.drawImage(
         this.sprite,
         0,
@@ -222,7 +223,8 @@
     createClones: function(count) {
       // This method will be usually called
       // when pappu gathers a 'clone' collectible.
-
+if(this.cloneFireAllowed > 0)
+{
       var pappu_clone;
 
       for (var i = 0; i < count; i++) {
@@ -233,6 +235,8 @@
         this.clones.push(pappu_clone);
       }
 
+      this.cloneFireAllowed = this.cloneFireAllowed - 1;
+}
       return;
     },
 
@@ -260,7 +264,7 @@
       // super optimization :P
       if (!self.clones.length)
         return;
-      
+
       var branches = mit.BranchUtils.branches;
       var forks = mit.ForkUtils.forks;
       var pakias = mit.PakiaUtils.pakias;

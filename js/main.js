@@ -98,6 +98,13 @@ mit.main = function() {
     return false;
   });
 
+
+  $("#clone").click(function() {
+    mit.Pappu.createClones(3);
+
+    return false;
+  });
+
   /*
     Game Start Screen and Lolz
   */
@@ -242,8 +249,7 @@ mit.main = function() {
 
     // Up
     if (e.keyCode === 38) {
-      mit.ascend();
-
+       mit.ascend();
       e.preventDefault();
     }
     // Down
@@ -255,6 +261,12 @@ mit.main = function() {
     if (e.keyCode === 32 || e.keyCode === 13) {
       startGame();
 
+      e.preventDefault();
+    }
+
+    if(e.keyCode === 65)
+    {
+      mit.Pappu.createClones(3);
       e.preventDefault();
     }
 

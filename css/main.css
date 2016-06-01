@@ -1,4 +1,4 @@
-@font-face{ 
+@font-face{
 	font-family: 'Happy Sans';
 	src: url('../fonts/happy_sans-webfont.eot');
 	src: url('../fonts/happy_sans-webfont.eot?#iefix') format('embedded-opentype'),
@@ -90,6 +90,20 @@ h1, #loadText {
 	position: absolute;
 	top: 15px;
 	right: 15px;
+	z-index: 15;
+	background-position: 0 0;
+}
+
+#clone {
+	width: 49px;
+	height: 40px;
+	background: url(../img/apple.png) no-repeat;
+	display: block;
+	text-decoration: none;
+	outline: none;
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
 	z-index: 15;
 	background-position: 0 0;
 }
