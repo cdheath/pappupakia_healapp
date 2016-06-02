@@ -38,7 +38,8 @@ mit.main = function() {
     start_game: $('#start_game'),
     fps_count: $('#fps_count'),
     invincible_timer: $('#invincible_timer'),
-    invincible_loader: $('#invincible_loader')
+    invincible_loader: $('#invincible_loader'),
+    clone_charges: $('#clone_charges')
   };
 
   /*
@@ -404,6 +405,8 @@ mit.main = function() {
       if (!mit.game_over) {
         mit.score = mit.score += 0.1;
         ui.score_board.text(parseInt(mit.score));
+
+        ui.clone_charges.text(parseInt(mit.Pappu.cloneCharges));
       }
 
       // Acceleration + Gravity

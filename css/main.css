@@ -180,6 +180,23 @@ canvas#game_bg {
 	user-select: none;
 }
 
+#clone_charges {
+	position: absolute;
+	bottom: 15px;
+	left: 50px;
+	padding: 10px;
+	height: 10%;
+	text-align: left;
+	font-size: 30px;
+	font-weight: normal;
+	font-family: 'Happy Sans', cursive;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
 #invincible_timer {
 	width: 150px;
 	height: 10px;

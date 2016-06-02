@@ -10,7 +10,7 @@
 
   - One for pappu's invincibility
   */
-  
+
   mit.Collectible = function() {
 
     // x/y pos
@@ -255,7 +255,8 @@
             break;
 
           case 'clone':
-            mit.Pappu.createClones(3);
+          //  mit.Pappu.createClones(3);
+            mit.Pappu.increaseCloneCharges();
             break;
 
           case 'invincible':

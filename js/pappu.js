@@ -24,7 +24,7 @@
 
     fly_frame_count: 0,
     max_fly_frame_count: 10,
-    cloneFireAllowed : 3,
+    cloneCharges : 3,
 
     init: function() {
       this.sound = document.getElementById("flap");
@@ -223,7 +223,7 @@
     createClones: function(count) {
       // This method will be usually called
       // when pappu gathers a 'clone' collectible.
-if(this.cloneFireAllowed > 0)
+if(this.cloneCharges > 0)
 {
       var pappu_clone;
 
@@ -235,8 +235,14 @@ if(this.cloneFireAllowed > 0)
         this.clones.push(pappu_clone);
       }
 
-      this.cloneFireAllowed = this.cloneFireAllowed - 1;
+      this.cloneCharges = this.cloneCharges - 1;
 }
+      return;
+    },
+
+    increaseCloneCharges: function()
+    {
+      this.cloneCharges = this.cloneCharges + 1;
       return;
     },
 
