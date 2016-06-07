@@ -108,6 +108,19 @@ mit.main = function() {
     return false;
   });
 
+  $("#invincible").click(function() {
+  //  mit.Pappu.createClones(3);
+    mit.Pappu.invincible = 1;
+    mit.Pappu.invincibility_start = new Date().getTime();
+    mit.Pappu.invincibility_time = 5000;
+
+    // Show timer
+    mit.ui.invincible_timer.show();
+
+    return false;
+  });
+
+
   /*
     Game Start Screen and Lolz
   */

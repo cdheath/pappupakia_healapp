@@ -102,6 +102,20 @@ h1, #loadText {
 	background-position: 0 0;
 }
 
+#invincible {
+	width: 49px;
+	height: 40px;
+	background: url(../img/star.png) no-repeat;
+	display: block;
+	text-decoration: none;
+	outline: none;
+	position: absolute;
+	bottom: 15px;
+	left: 80px;
+	z-index: 15;
+	background-position: 0 0;
+}
+
 .container {
 	position: relative;
 	margin: 20px auto 50px;
