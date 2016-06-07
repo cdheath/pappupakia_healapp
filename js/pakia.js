@@ -24,9 +24,17 @@
       this.y = mit.config.canvas_height;
     };
 
-    this.generateRandomVelocity = function() {
-      this.vx = -12;
-      this.vy = utils.randomNumber(-18,-10);
+    this.generateRandomVelocity = function(slow_pakia) {
+      if(slow_pakia)
+      {
+        this.vx = -4;
+        this.vy = utils.randomNumber(-20,-12);
+      }
+      else
+      {
+        this.vx = -12;
+        this.vy = utils.randomNumber(-18,-10);
+      }
     };
 
     this.getBounds = function() {
@@ -51,6 +59,7 @@
     // as forks and branches have already
     // made it quite hard.
     cur_pakia: false,
+    slow_pakia: false,
 
     types: [
       'sad', // pulls
@@ -63,7 +72,7 @@
       document.getElementById("angry_jump"),
       document.getElementById("sad_jump"),
       document.getElementById("happy_jump")
-    ],      
+    ],
 
     pakia_img: {
       sad: {},
@@ -97,7 +106,7 @@
 
         pakia.generateRandomPos();
 
-        pakia.generateRandomVelocity();
+        pakia.generateRandomVelocity(this.slow_pakia);
 
         pakia.type = this.types[i];
         // pakia.type = this.types[0];
@@ -125,7 +134,7 @@
         this.cur_pakia = this.pakias[utils.randomNumber(0,2)];
 
         this.cur_pakia.generateRandomPos();
-        this.cur_pakia.generateRandomVelocity();
+        this.cur_pakia.generateRandomVelocity(this.slow_pakia);
       }
 
       this.cur_pakia.vy += this.cur_pakia.gravity;
@@ -141,7 +150,7 @@
         ) {
         this.cur_pakia.generateRandomPos();
 
-        this.cur_pakia.generateRandomVelocity();
+        this.cur_pakia.generateRandomVelocity(this.slow_pakia);
 
         // Important! since JS's game's all about
         // objects by reference.

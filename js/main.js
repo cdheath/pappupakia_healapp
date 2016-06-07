@@ -271,6 +271,20 @@ mit.main = function() {
       e.preventDefault();
     }
 
+    if(e.keyCode === 83)
+    {
+      mit.Backgrounds.setAllSpeed(1, 1, 2, 3, 1);
+      mit.PakiaUtils.slow_pakia = true;
+      e.preventDefault();
+    }
+
+    if(e.keyCode === 68)
+    {
+      mit.Backgrounds.resetAllSpeed();
+      mit.PakiaUtils.slow_pakia = false;
+      e.preventDefault();
+    }
+
   }, false);
 
   window.addEventListener('keyup', function(e) {
