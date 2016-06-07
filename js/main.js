@@ -39,6 +39,8 @@ mit.main = function() {
     fps_count: $('#fps_count'),
     invincible_timer: $('#invincible_timer'),
     invincible_loader: $('#invincible_loader'),
+    slow_timer: $('#slow_timer'),
+    slow_loader: $('#slow_loader'),
     clone_charges: $('#clone_charges')
   };
 
@@ -275,6 +277,10 @@ mit.main = function() {
     {
       mit.Backgrounds.setAllSpeed(1, 1, 2, 3, 1);
       mit.PakiaUtils.slow_pakia = true;
+      mit.Pappu.slow_mode = 1;
+      mit.Pappu.slow_time = 5000;
+      mit.Pappu.slow_start = new Date().getTime();
+      mit.ui.slow_timer.show();
       e.preventDefault();
     }
 

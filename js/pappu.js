@@ -11,6 +11,9 @@
     invincible: 0,
     invincibility_start: 0,
     invincibility_time: 0,
+    slow_mode: 0,
+    slow_start: 0,
+    slow_time: 0,
     clones: [],
 
     rotate_angle: 0,
@@ -54,9 +57,18 @@
     undoInvincible: function() {
       this.invincible = 0;
       this.invincibility_start = 0;
-      this.invincible_timer = 0;
+      this.invincible_time = 0;
 
       mit.ui.invincible_timer.hide();
+    },
+
+    undoSlowMode: function() {
+      this.slow_mode = 0;
+      this.slow_start = 0;
+      this.slow_time = 0;
+      mit.Backgrounds.resetAllSpeed();
+      mit.PakiaUtils.slow_pakia = false;
+      mit.ui.slow_timer.hide();
     },
 
     draw: function(ctx) {
@@ -116,6 +128,21 @@
           this.undoInvincible();
         else
           mit.ui.invincible_loader.css('width', timer_progress + '%');
+
+        // console.log(timer_progress)
+      }
+
+      if (this.slow_mode) {
+        // Current time
+        var cur_time = new Date().getTime();
+        var time_diff = cur_time - this.slow_start;
+
+        var timer_progress = (time_diff/this.slow_time) * 100;
+
+        if (timer_progress > 100)
+          this.undoSlowMode();
+        else
+          mit.ui.slow_loader.css('width', timer_progress + '%');
 
         // console.log(timer_progress)
       }

@@ -74,12 +74,6 @@ h1, #loadText {
 	font-family: 'Happy Sans', cursive;
 }
 
-.gads {
-	text-align: center;
-	max-width: 1000px;
-	margin: 20px auto;
-}
-
 #mute {
 	width: 49px;
 	height: 40px;
@@ -212,6 +206,21 @@ canvas#game_bg {
 	background: #FDCF7D;
 }
 
+#slow_timer {
+	width: 150px;
+	height: 10px;
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	border: 1px solid #fff;
+	margin-left: -75px;
+	display: none;
+}
+#slow_loader {
+	width: 100%; height: 100%;
+	background: #FF5733;
+}
+
 
 /* Start Screen */
 #start_screen {
@@ -320,27 +329,6 @@ canvas#game_bg {
 	position: absolute;
 	top: 60%; left: 50%;
 	margin-top: -24px; margin-left: -100px;
-}
-
-/* Share Buttons */
-#share_btns {
-	max-width: 420px;
-	overflow: hidden;
-	margin: 0 auto;
-}
-
-.share-button {
-	float: left;
-	margin-right: 10px;
-}
-
-#disqus_thread {
-	max-width: 1000px;
-	margin: 0 auto;
-}
-
-#disqus_thread a {
-	color: red;
 }
 
 div.comments-button a, div.chrome-button  a{

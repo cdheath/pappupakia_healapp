@@ -24,17 +24,9 @@
       this.y = mit.config.canvas_height;
     };
 
-    this.generateRandomVelocity = function(slow_pakia) {
-      if(slow_pakia)
-      {
-        this.vx = -4;
-        this.vy = utils.randomNumber(-20,-12);
-      }
-      else
-      {
+    this.generateRandomVelocity = function() {
         this.vx = -12;
         this.vy = utils.randomNumber(-18,-10);
-      }
     };
 
     this.getBounds = function() {
@@ -106,7 +98,7 @@
 
         pakia.generateRandomPos();
 
-        pakia.generateRandomVelocity(this.slow_pakia);
+        pakia.generateRandomVelocity();
 
         pakia.type = this.types[i];
         // pakia.type = this.types[0];
@@ -134,13 +126,23 @@
         this.cur_pakia = this.pakias[utils.randomNumber(0,2)];
 
         this.cur_pakia.generateRandomPos();
-        this.cur_pakia.generateRandomVelocity(this.slow_pakia);
+        this.cur_pakia.generateRandomVelocity();
+      }
+      var scalar = 1;
+
+      if(this.slow_pakia)
+      {
+          scalar = 0.5;
+      }
+      else
+      {
+        scalar = 1;
       }
 
-      this.cur_pakia.vy += this.cur_pakia.gravity;
+      this.cur_pakia.vy += this.cur_pakia.gravity * scalar;
 
-      this.cur_pakia.x += this.cur_pakia.vx;
-      this.cur_pakia.y += this.cur_pakia.vy;
+      this.cur_pakia.x += this.cur_pakia.vx * scalar;
+      this.cur_pakia.y += this.cur_pakia.vy * scalar;
       // console.log(this.cur_pakia.x)
 
       // Reset positions
@@ -150,7 +152,7 @@
         ) {
         this.cur_pakia.generateRandomPos();
 
-        this.cur_pakia.generateRandomVelocity(this.slow_pakia);
+        this.cur_pakia.generateRandomVelocity();
 
         // Important! since JS's game's all about
         // objects by reference.
