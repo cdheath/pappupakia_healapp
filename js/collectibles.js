@@ -59,6 +59,10 @@
           this.drawInvincible(ctx);
           break;
 
+        case 'slowmode':
+          this.drawSlowmode(ctx);
+          break;
+
       }
 
       return;
@@ -92,7 +96,15 @@
         this.y
       );
     };
-  };
+
+    this.drawSlowmode = function(ctx) {
+        ctx.drawImage(
+          mit.CollectibleUtils.slowmode_img,
+          this.x,
+          this.y
+        );
+    };
+};
 
 
   mit.CollectibleUtils = {
@@ -101,7 +113,7 @@
 
     count: 2,
 
-    types: ['coin', 'clone', 'invincible'],
+    types: ['coin', 'clone', 'invincible', 'slowmode'],
     //types: ['invincible'],
 
     sub_types: {
@@ -120,6 +132,8 @@
       // this.invincible_img = new Image();
       // this.invincible_img.src = 'img/star.png';
       this.invincible_img = mit.image.star;
+
+      this.slowmode_img = mit.image.apple;
     },
 
     getCoinSpritePos: function(sub_type) {
@@ -260,25 +274,11 @@
             break;
 
           case 'invincible':
-            mit.Pappu.invincible = 1;
+            mit.Pappu.increaseInvincibilityCharges();
+            break;
 
-            // Kush says we shouldnt add up
-            /*if (!mit.Pappu.invincibility_start) {
-              mit.Pappu.invincibility_time = 5000;
-            }
-            else {
-              var cur_time = new Date().getTime();
-              var prev_remaining_time = cur_time - mit.Pappu.invincibility_start;
-
-              mit.Pappu.invincibility_time = 5000 + prev_remaining_time;
-            }*/
-
-            mit.Pappu.invincibility_start = new Date().getTime();
-            mit.Pappu.invincibility_time = 5000;
-
-            // Show timer
-            mit.ui.invincible_timer.show();
-
+          case 'slowmode':
+            mit.Pappu.increaseSlowmodeCharges();
             break;
         }
 

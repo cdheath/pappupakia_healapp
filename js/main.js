@@ -41,7 +41,9 @@ mit.main = function() {
     invincible_loader: $('#invincible_loader'),
     slow_timer: $('#slow_timer'),
     slow_loader: $('#slow_loader'),
-    clone_charges: $('#clone_charges')
+    clone_charges: $('#clone_charges'),
+    slow_charges: $('#slow_charges'),
+    invisibility_charges: $('#invisibility_charges')
   };
 
   /*
@@ -104,22 +106,18 @@ mit.main = function() {
 
   $("#clone").click(function() {
     mit.Pappu.createClones(3);
-
     return false;
   });
 
   $("#invincible").click(function() {
-  //  mit.Pappu.createClones(3);
-    mit.Pappu.invincible = 1;
-    mit.Pappu.invincibility_start = new Date().getTime();
-    mit.Pappu.invincibility_time = 5000;
-
-    // Show timer
-    mit.ui.invincible_timer.show();
-
+    mit.Pappu.setInvincibility();    
     return false;
   });
 
+  $("#slowmode").click(function() {
+    mit.Pappu.enterSlowMode();
+    return false;
+  });
 
   /*
     Game Start Screen and Lolz
@@ -288,11 +286,7 @@ mit.main = function() {
 
     if(e.keyCode === 83)
     {
-      mit.Backgrounds.setAllSpeed(1, 1, 2, 3, 1);
-      mit.PakiaUtils.slow_pakia = true;
-      mit.Pappu.slow_mode = 1;
-      mit.Pappu.slow_time = 5000;
-      mit.Pappu.slow_start = new Date().getTime();
+      mit.Pappu.enterSlowMode();
       mit.ui.slow_timer.show();
       e.preventDefault();
     }
@@ -440,6 +434,8 @@ mit.main = function() {
         ui.score_board.text(parseInt(mit.score));
 
         ui.clone_charges.text(parseInt(mit.Pappu.cloneCharges));
+        ui.invisibility_charges.text(parseInt(mit.Pappu.invincibilityCharges));
+        ui.slow_charges.text(parseInt(mit.Pappu.slowCharges));
       }
 
       // Acceleration + Gravity

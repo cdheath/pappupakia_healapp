@@ -91,7 +91,7 @@ h1, #loadText {
 #clone {
 	width: 49px;
 	height: 40px;
-	background: url(../img/apple.png) no-repeat;
+	background: url(../img/berries.png) no-repeat;
 	display: block;
 	text-decoration: none;
 	outline: none;
@@ -112,6 +112,20 @@ h1, #loadText {
 	position: absolute;
 	bottom: 15px;
 	left: 80px;
+	z-index: 15;
+	background-position: 0 0;
+}
+
+#slowmode {
+	width: 49px;
+	height: 40px;
+	background: url(../img/apple.png) no-repeat;
+	display: block;
+	text-decoration: none;
+	outline: none;
+	position: absolute;
+	bottom: 15px;
+	left: 150px;
 	z-index: 15;
 	background-position: 0 0;
 }
@@ -192,6 +206,40 @@ canvas#game_bg {
 	position: absolute;
 	bottom: 15px;
 	left: 50px;
+	padding: 10px;
+	height: 10%;
+	text-align: left;
+	font-size: 30px;
+	font-weight: normal;
+	font-family: 'Happy Sans', cursive;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#invisibility_charges {
+	position: absolute;
+	bottom: 15px;
+	left: 115px;
+	padding: 10px;
+	height: 10%;
+	text-align: left;
+	font-size: 30px;
+	font-weight: normal;
+	font-family: 'Happy Sans', cursive;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#slow_charges {
+	position: absolute;
+	bottom: 15px;
+	left: 175px;
 	padding: 10px;
 	height: 10%;
 	text-align: left;

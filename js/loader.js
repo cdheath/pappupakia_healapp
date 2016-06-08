@@ -11,7 +11,7 @@
 
   // Preloading audio stuff
   var loadMusic = document.getElementById("start"),
-      loadAngry = document.getElementById("angry_jump"), 
+      loadAngry = document.getElementById("angry_jump"),
       loadSad = document.getElementById("sad_jump"),
       loadHappy = document.getElementById("happy_jump"),
       loadFlap = document.getElementById("flap"),
@@ -20,11 +20,11 @@
   // Preloading image stuff
 
   mit.audio = [
-    loadMusic, 
-    loadAngry, 
-    loadSad, 
+    loadMusic,
+    loadAngry,
+    loadSad,
     loadHappy,
-    loadFlap, 
+    loadFlap,
     loadTing,
   ];
 
@@ -51,7 +51,8 @@
     plank_top : "img/plank_top.png",
     sad_pakia : "img/sad_pakia.png",
     stand : "img/stand.png",
-    star : "img/star.png"
+    star : "img/star.png",
+    apple : "img/apple.png"
   };
 
   mit.image = {};
@@ -71,7 +72,7 @@
     for(var i = 0; i < mit.audio.length; i++) {
       var file = mit.audio[i];
 
-      if (isNaN(file.duration)) { 
+      if (isNaN(file.duration)) {
         file.addEventListener("loadeddata", function() {
           counter++;
           percent = Math.floor((counter/size*100));
@@ -110,7 +111,7 @@
       percent = Math.floor(((counter)/size*100));
       loading.style.width = percent + "%";
       loadText.innerHTML = "Loading... " + percent + "%";
-      
+
       if(percent >= 100) {
         $("#loading").fadeOut();
         mit.main();

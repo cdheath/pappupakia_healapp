@@ -28,6 +28,10 @@
     fly_frame_count: 0,
     max_fly_frame_count: 10,
     cloneCharges : 3,
+    invincibilityCharges : 3,
+    invincibilityDuration : 5000,
+    slowCharges : 1,
+    slowDuration : 5000,
 
     init: function() {
       this.sound = document.getElementById("flap");
@@ -69,6 +73,33 @@
       mit.Backgrounds.resetAllSpeed();
       mit.PakiaUtils.slow_pakia = false;
       mit.ui.slow_timer.hide();
+    },
+
+    enterSlowMode: function()
+    {
+      if(this.slowCharges >= 1)
+      {
+        mit.Backgrounds.setAllSpeed(1, 1, 2, 3, 1);
+        mit.PakiaUtils.slow_pakia = true;
+        this.slow_mode = 1;
+        this.slow_time = this.slowDuration;
+        this.slow_start = new Date().getTime();
+        mit.ui.slow_timer.show();
+        this.slowCharges -= 1;
+      }
+    },
+
+    setInvincibility: function()
+    {
+      if(this.invincibilityCharges >= 1)
+      {
+        this.invincible = 1;
+        this.invincibility_start = new Date().getTime();
+        this.invincibility_time = this.invincibilityDuration;
+        // Show timer
+        mit.ui.invincible_timer.show();
+        this.invincibilityCharges -= 1;
+      }
     },
 
     draw: function(ctx) {
@@ -270,6 +301,18 @@ if(this.cloneCharges > 0)
     increaseCloneCharges: function()
     {
       this.cloneCharges = this.cloneCharges + 1;
+      return;
+    },
+
+    increaseInvincibilityCharges: function()
+    {
+      this.invincibilityCharges = this.invincibilityCharges + 1;
+      return;
+    },
+
+    increaseSlowmodeCharges: function()
+    {
+      this.slowCharges = this.slowCharges + 1;
       return;
     },
 
