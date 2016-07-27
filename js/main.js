@@ -36,6 +36,7 @@ mit.main = function() {
     high_score: $('#high_score'),
     start_screen: $('#start_screen'),
     start_game: $('#start_game'),
+    end_game: $('#end_game'),
     fps_count: $('#fps_count'),
     invincible_timer: $('#invincible_timer'),
     invincible_loader: $('#invincible_loader'),
@@ -110,7 +111,7 @@ mit.main = function() {
   });
 
   $("#invincible").click(function() {
-    mit.Pappu.setInvincibility();    
+    mit.Pappu.setInvincibility();
     return false;
   });
 
@@ -176,6 +177,10 @@ mit.main = function() {
     startGame();
 
     return false;
+  });
+
+  ui.end_game.on('mousedown', function() {
+    //put code to return to survey app
   });
 
   // Score Board
@@ -293,8 +298,7 @@ mit.main = function() {
 
     if(e.keyCode === 68)
     {
-      mit.Backgrounds.resetAllSpeed();
-      mit.PakiaUtils.slow_pakia = false;
+      mit.Pappu.setInvincibility();
       e.preventDefault();
     }
 
