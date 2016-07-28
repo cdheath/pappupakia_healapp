@@ -89,9 +89,9 @@ h1, #loadText {
 }
 
 #clone {
-	width: 49px;
-	height: 40px;
-	background: url(../img/berries.png) no-repeat;
+	width: 50px;
+	height: 50px;
+	background: url(../img/Powerup_Multiply.png) no-repeat;
 	display: block;
 	text-decoration: none;
 	outline: none;
@@ -103,9 +103,9 @@ h1, #loadText {
 }
 
 #invincible {
-	width: 49px;
-	height: 40px;
-	background: url(../img/star.png) no-repeat;
+	width: 50px;
+	height: 50px;
+	background: url(../img/Powerup_Invincible.png) no-repeat;
 	display: block;
 	text-decoration: none;
 	outline: none;
@@ -117,9 +117,9 @@ h1, #loadText {
 }
 
 #slowmode {
-	width: 49px;
-	height: 40px;
-	background: url(../img/apple.png) no-repeat;
+	width: 50px;
+	height: 50px;
+	background: url(../img/Powerup_Slow.png) no-repeat;
 	display: block;
 	text-decoration: none;
 	outline: none;
@@ -239,7 +239,7 @@ canvas#game_bg {
 #slow_charges {
 	position: absolute;
 	bottom: 15px;
-	left: 175px;
+	left: 180px;
 	padding: 10px;
 	height: 10%;
 	text-align: left;
